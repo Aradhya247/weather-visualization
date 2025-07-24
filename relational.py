@@ -334,11 +334,10 @@ class _LinePlotter(_RelationalPlotter):
             line_alpha = line.get_alpha()
             line_capstyle = line.get_solid_capstyle()
 
-            # --- Draw the confidence intervals
+            
 
             if self.estimator is not None and self.errorbar is not None:
 
-                # TODO handling of orientation will need to happen here
 
                 if self.err_style == "band":
 
@@ -386,9 +385,6 @@ class _ScatterPlotter(_RelationalPlotter):
 
     def __init__(self, *, data=None, variables={}, legend=None):
 
-        # TODO this is messy, we want the mapping to be agnostic about
-        # the kind of plot to draw, but for the time being we need to set
-        # this information so the SizeMapping can use it
         self._default_size_range = (
             np.r_[.5, 2] * np.square(mpl.rcParams["lines.markersize"])
         )
